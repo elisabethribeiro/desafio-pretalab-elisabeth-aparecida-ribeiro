@@ -1,5 +1,6 @@
 /* Contagem de Medalhas
-Crie um programa que receba o número de medalhas de ouro, prata e bronze de um país nas Olimpíadas e calcule o total de medalhas. Quando escrever 'sair', o programa deverá encerrar e mostrar na tela o ranking de medalhas no formato:
+Crie um programa que receba o número de medalhas de ouro, prata e bronze de um país nas Olimpíadas e calcule o total de medalhas. 
+Quando escrever 'sair', o programa deverá encerrar e mostrar na tela o ranking de medalhas no formato:
 
 
 #Ranking de medalhas:
@@ -9,50 +10,57 @@ Crie um programa que receba o número de medalhas de ouro, prata e bronze de um 
 
 */
 
-// Função principal
-function numerodemedalhas() {
+// Função principal sempre com verbo - acao a ser executada
+function contarMedalhas() {
     let paises = [];
-    let medalhasdeouro = [];
-    let medalhasdeprata = [];
-    let medalhasdebronze = [];
-    let totaldemedalhas = 0;
+    let numeroMedalhasOuro = 0;
+    let numeroMedalhasPrata = 0;
+    let numeroMedalhasBronze = 0;
   
     while (true) {
-      let país = prompt("Digite o nome do país (ou 'sair' para terminar):");
+      let nomePais = prompt("Digite o nome do país (ou 'sair' para terminar):"); // vai aparecer janela para digitacao
   
-      if (país.toLowerCase() === "sair") {
+      if (nomePais.toLowerCase() === "sair") { //conversao para letra minuscula e comparacao com sair, caso seja estritamente igual o codigo acaba
         break;
       }
   
-      let medalhadeouro = parseFloat(prompt(`Digite o número de medalhas de ouro ${país}:`));
-      if  (!isNaN(medalhadeouro)) {
-        país.push(paises);
-        medalhasdeouro.push(medalhadeouro)
+      numeroMedalhasOuro = parseFloat(prompt(`Digite o número de medalhas de OURO ${nomePais}:`));
+      if  (!isNaN(numeroMedalhasOuro)) { //!isNaN verifica se e um numero
+        paises.push(nomePais);
+        console.log('nome pais', nomePais)
+        console.log('numero medalhas ouro', numeroMedalhasOuro)
       } else {
-        alert("Por favor, insira um valor numérico válido para o número de medalhas de ouro.");
+        alert("Por favor, insira um valor numérico válido para o número de medalhas de OURO.");
+        break;
       }
-      let medalhadeprata = parseFloat(prompt(`Digite o número de medalhas de prata ${país}:`));
-      if  (!isNaN(medalhadeprata)) {
-        país.push(paises);
-        medalhasdeprata.push(medalhadeprata)
+      numeroMedalhasPrata = parseFloat(prompt(`Digite o número de medalhas de PRATA ${nomePais}:`));
+      if  (!isNaN(numeroMedalhasPrata)) {
+        paises.push(nomePais);
+        console.log('nome pais', nomePais)
+        console.log('numero medalhas prata', numeroMedalhasPrata)
       } else {
-        alert("Por favor, insira um valor numérico válido para o número de medalhas de ouro.");
+        alert("Por favor, insira um valor numérico válido para o número de medalhas de PRATA.");
+        break;
       }
-      let medalhadebronze = parseFloat(prompt(`Digite o número de medalhas de ouro ${país}:`));
-      if  (!isNaN(medalhadeouro)) {
-        país.push(paises);
-        medalhasdebronze.push(medalhadebronze)
+      numeroMedalhasBronze = parseFloat(prompt(`Digite o número de medalhas de BRONZE ${nomePais}:`));
+      if  (!isNaN(numeroMedalhasBronze)) {
+        paises.push(nomePais);
+        console.log('nome pais', nomePais)
+        console.log('numero medalhas bronze', numeroMedalhasBronze)
       } else {
-        alert("Por favor, insira um valor numérico válido para o número de medalhas de ouro.");
+        alert("Por favor, insira um valor numérico válido para o número de medalhas de BRONZE.");
+        break;
       }
     }
   
     if (paises.length > 0) {
-      let somartiposdemedalhas = medalhasdeouro + medalhasdeprata + medalhadebronze;
-  
-      let maiormedalhasdeouro = medalhasdeouro[0];
-      let maiormedalhasdeprata = medalhasdeprata[0];
-      let maiormedalhasdebronze = medalhasdebronze[0];
+      let totalMedalhas = numeroMedalhasOuro + numeroMedalhasPrata + numeroMedalhasBronze;
+      console.log('soma medalhas', totalMedalhas);
+      console.log('numero de medalhas ouro', numeroMedalhasOuro);
+      console.log('numero de medalhas prata', numeroMedalhasPrata);
+      console.log('numero de medalhas bronze', numeroMedalhasBronze);
     
-  
-    }}
+    }} 
+    contarMedalhas() // vai executar acao iniciada na funcao
+
+    //criar for e log para cada pais
